@@ -1,20 +1,18 @@
-# Ex-10-IMPLEMENTATION-OF-SIMPLE-CODE-OPTIMIZATION-TECHNIQUES
+~~~
+ Ex-10-IMPLEMENTATION-OF-SIMPLE-CODE-OPTIMIZATION-TECHNIQUES
 IMPLEMENTATION OF SIMPLE CODE OPTIMIZATION TECHNIQUES 
 
-# Date:5.04.2024
-
-# Aim:
+ Aim:
 To write a C program to implement simple code optimization techniques such as Common subexpression elimination and Dead Code elimination.
 
-# ALGORITHM :
+ ALGORITHM :
 1. Start the program.
 2. The ‘L’values and their corresponding ‘R’ values are given as input.
 3. After common subexpression elimination, the subexpressions that are common are identified and are removed.
 4. After Dead code elimination, the subexpression that is of no use can be identified and is eliminated.
 5. Stop the program.
 
-# PROGRAM
-~~~
+ PROGRAM
 #include <stdio.h>
 #include <string.h>
 
@@ -22,7 +20,6 @@ struct op {
     char l;
     char r[20];
 } op[10], pr[10];
-
 int main() {
     int a, i, k, j, n, z = 0, m, q;
     char *p, *l;
@@ -44,7 +41,7 @@ int main() {
         printf("%c=%s\n", op[i].l, op[i].r);
     }
 
-    for (i = 0; i < n - 1; i++) {
+for (i = 0; i < n - 1; i++) {
         temp = op[i].l;
         for (j = 0; j < n; j++) {
             p = strchr(op[j].r, temp);
@@ -64,8 +61,7 @@ int main() {
     for (k = 0; k < z; k++) {
         printf("%c\t=%s\n", pr[k].l, pr[k].r);
     }
-
-    for (m = 0; m < z; m++) {
+for (m = 0; m < z; m++) {
         tem = pr[m].r;
         for (j = m + 1; j < z; j++) {
             p = strstr(tem, pr[j].r);
@@ -78,12 +74,7 @@ int main() {
                         a = l - pr[i].r;
                         printf("pos: %d", a);
                         pr[i].r[a] = pr[m].l;
-                    }
-                }
-            }
-        }
-    }
-
+                    )
     printf("Eliminate Common Expression\n");
     for (i = 0; i < z; i++) {
         printf("%c=%s\n", pr[i].l, pr[i].r);
@@ -98,15 +89,13 @@ int main() {
             }
         }
     }
-
-    printf("Optimized Code\n");
+printf("Optimized Code\n");
     for (i = 0; i < z; i++) {
         if (pr[i].l!= '\0') {
             printf("%c=%s\n", pr[i].l, pr[i].r);
         }
     }
-
-    return 0;
+   return 0;
 }
 ~~~
 
